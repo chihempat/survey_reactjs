@@ -20,10 +20,10 @@ const TakeSurvey = (props) => {
         <div className="create-survey-container">
             <form>
                 {Object.keys(surveys).map((key, index) => (
-                    <div>
+                    <div key={index}>
                         <h2 className="question-containe">Q{index + 1}. {(surveys[key].question).toString()}</h2>
                         {surveys[key].options.map((option, index) => (
-                            <div className="answer-container"><h3><b>{index + 1}.</b> {(option.value ?? '')}<input type={surveys[key].type === "single" ? "radio" : "checkbox"} name="option1" value={option.value ?? " "} /></h3></div>
+                            <div className="answer-container" key={index}><h3><b>{index + 1}.</b> {(option.value ?? '')}<input type={surveys[key].type === "single" ? "radio" : "checkbox"} name="option1" value={option.value ?? " "} id={ index+1 } /></h3></div>
                         )
                         )}
                     </div>

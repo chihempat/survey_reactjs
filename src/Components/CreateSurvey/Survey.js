@@ -94,8 +94,8 @@ let op2 = useRef(null);
 					{surveyType === 'multi' ? (
 						<>
 							{options.map((option,index) => (
-								<div className="answer-container">
-									<input type="text" placeholder="Type answer here" ref={answer} id={index}/>
+								<div className="answer-container" key={index}>
+									<input type="text" placeholder="Type answer here" ref={answer} />
 									<p onClick={onAddItem}>➕</p>
 									<p onClick={onDeleteItem}>➖</p>
 									<br />
