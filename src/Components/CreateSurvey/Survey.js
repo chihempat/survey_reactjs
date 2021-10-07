@@ -9,6 +9,9 @@ const [isPublish,setPublish] = useState(false);
 const [options, setOptions] = useState([{}]);
 const answer = useRef(null);
 const question = useRef(null);
+let op1 = useRef(null);
+let op2 = useRef(null);
+
 
 	const [survey, setSurvey] = useState([]);
 
@@ -58,13 +61,12 @@ const question = useRef(null);
 	const addQuestion = () => {
 		let questions = {
 			type: surveyType,
-			question: question.current.value,
-			options: surveyType === "single" ? [{ id: 1, value: "Yes" }, { id: 2, value: "No" }] : options.splice(1, options.length - 1)
+			question: question.current?.value || '',
+			options: surveyType === "single" ? [{ id: 1, value:  op1.current.value || "Yes"   }, { id: 2, value: op2.current.value || "No"  }] : options.values
 		}
-
 		setSurvey((prev)=>[...prev, questions]);
 		setSurveyType('defaultValue');
-		setOptions([{}]);
+		setOptions([]);
 		console.log(survey);
 
 	}
@@ -86,7 +88,7 @@ const question = useRef(null);
 					<option value="single">Single select</option>
 				</select>
 			</div>
-			{surveyType !== 'defaultValue' ? (
+			{surveyType !== 'defaultValue' && (
 				<div className="survey-container">
 					<input type="text" placeholder="Enter your question here" className="question-container" ref={question}/>
 					{surveyType === 'multi' ? (
@@ -101,14 +103,14 @@ const question = useRef(null);
 							))}
 						</>) : (
 							<div className="answer-container">
-								Yes<input type="radio" value={true} id={1} name="single"/>
-								No<input type="radio" value={false} id={2} name="single" />
+							<input type="text" placeholder="True" ref={op1} /><input type="radio" name="single"/>
+							<input type="text" placeholder="False" ref={op2} /><input type="radio" name="single" />
 							</div>
 					)}
 					<button onClick={addQuestion}>Add Question</button>
-					<button onClick={publish}>Publish</button>
 				</div>
-					) : null}
+					)}
+					{ survey.length !== 0 && <button onClick={publish}>Publish</button>}
 					</>
 			}
 
