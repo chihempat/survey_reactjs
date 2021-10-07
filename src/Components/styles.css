@@ -133,7 +133,7 @@ select {
     font-family: "Helvetica Neue", Helvetica, Arial;
     text-align: center;
     background: #f5ba13;
-    color: rgb(196, 196, 196);
+    color: rgb(255, 255, 255);
     border-radius: 4%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
