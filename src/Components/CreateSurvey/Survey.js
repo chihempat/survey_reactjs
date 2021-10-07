@@ -62,11 +62,11 @@ let op2 = useRef(null);
 		let questions = {
 			type: surveyType,
 			question: question.current?.value || '',
-			options: surveyType === "single" ? [{ id: 1, value:  op1.current.value || "Yes"   }, { id: 2, value: op2.current.value || "No"  }] : options.values
+			options: surveyType === "single" ? [{ id: 1, value: (op1.current.value || "Yes") }, { id: 2, value: (op2.current.value || "No") }] : options.splice(1, options.length - 1)
 		}
 		setSurvey((prev)=>[...prev, questions]);
 		setSurveyType('defaultValue');
-		setOptions([]);
+		setOptions([{}]);
 		console.log(survey);
 
 	}
