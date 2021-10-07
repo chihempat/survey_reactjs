@@ -1,5 +1,4 @@
 import React from 'react';
-import './_landing_page.css';
 
 import { Link } from 'react-router-dom';
 
@@ -8,12 +7,12 @@ const LandingPage = (props) => {
 		<div>
 			<div>
 				<Link to="/create">
-					<button className="landing-page-button"> Create Survey</button>
+					<button className="btn-action"> Create Survey</button>
 				</Link>
 			</div>
 			<div>
 				<Link to="/take">
-				<button className="landing-page-button"> Take Survey</button>
+				<button className="btn-action"> Take Survey</button>
 				</Link>
 			</div>
 		</div>

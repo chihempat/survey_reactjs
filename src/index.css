@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
+  font-weight: 300;
+  background: #50a3a2;
+  width: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  height: 100%;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+button {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 20px;
+    background: #f5ba13;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: no
 }

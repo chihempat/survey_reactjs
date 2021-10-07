@@ -1,6 +1,6 @@
 import React, { useState, Fragment }from 'react';
 import Survey from './Survey';
-import './_create_survey.css';
+import './styles.css';
 
 const CreateSurvey = (props) => {
     const [survey,setSurvey] = useState([])

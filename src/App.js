@@ -4,9 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 
 import logo from './assets/images/logo.png';
 
-import LandingPage from './Components/LandingPage/LandingPage';
-import CreateSurvey from './Components/CreateSurvey/CreateSurvey';
-import TakeSurvey from './Components/TakeSurvey/TakeSurvey'
+import LandingPage from './Components/LandingPage';
+import CreateSurvey from './Components/CreateSurvey';
+import TakeSurvey from './Components/TakeSurvey'
 
 function App() {
 	return (

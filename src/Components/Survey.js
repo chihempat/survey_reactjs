@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useRef } from 'react';
 import { Route, Switch, useHistory, Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
-import TakeSurvey from '../TakeSurvey/TakeSurvey';
+import TakeSurvey from './TakeSurvey';
+import "./styles.css"
 
 const Survey = (props) => {
 const [surveyType, setSurveyType] = useState('defaultValue');
@@ -24,22 +24,12 @@ let op2 = useRef(null);
 			});
 		});
 		console.log("=======>",survey);
-
 		//naviagte to take survey
 		setPublish(true);
 
 	}
 
-
-
-
     const onAddItem = () => {
-        // Approach 1 :
-        // const updatedOptions = [...options];
-        // updatedOptions.push({value: '', id: Date.now()})
-        // setOptions(updatedOptions)
-
-        // Approach 2 :
 			if (options.length < 5) {
 				let temp = [...options];
 				let val = answer.current.value ?? "";
@@ -96,8 +86,8 @@ let op2 = useRef(null);
 							{options.map((option,index) => (
 								<div className="answer-container" key={index}>
 									<input type="text" placeholder="Type answer here" ref={answer} />
-									<p onClick={onAddItem}>➕</p>
-									<p onClick={onDeleteItem}>➖</p>
+									<button onClick={onAddItem}><span>➕</span></button>
+									<button onClick={onDeleteItem}><span>➖</span></button>
 									<br />
 								</div>
 							))}
@@ -107,10 +97,10 @@ let op2 = useRef(null);
 							<input type="text" placeholder="False" ref={op2} /><input type="radio" name="single" />
 							</div>
 					)}
-					<button onClick={addQuestion}>Add Question</button>
+					<button class="btn-action" onClick={addQuestion}>Add Question</button>
 				</div>
 					)}
-					{ survey.length !== 0 && <button onClick={publish}>Publish</button>}
+					{ survey.length !== 0 && <button class="btn-action" onClick={publish}>Publish</button>}
 					</>
 			}
 
@@ -119,7 +109,4 @@ let op2 = useRef(null);
 };
 
 export default Survey;
-
-// 1. Write a onClick event handler for <p> + </p>
-// 2. When + is clicked, you add another option object to the options state.
 
